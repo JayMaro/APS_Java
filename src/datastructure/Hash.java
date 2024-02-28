@@ -11,6 +11,7 @@ package datastructure;
  *   - not at disk but at Object hash code by memory address
  * - *minimize collisions*
  *
+ * - hashCode index Array size -> odd, prime number
  */
 public class Hash {
 
