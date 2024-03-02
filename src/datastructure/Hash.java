@@ -28,4 +28,31 @@ public class Hash {
         }
         return hash;
     }
+
+    public static int makeAnIntegerPositive(int num) {
+        int andNumber = 0x7fffffff; // 0111 1111 1111 1111 1111 1111 1111 1111
+        return andNumber & num;
+    }
+
+    public static void loadFactor() {
+        /**
+         * loadFactor -> 용량 대비 데이터가 어느정도 찼을 때 내부적으로 사이즈 확장을 필요로 하는 자료구조에서 사용되는 개념
+         * 언제 사이즈를 늘릴지 결정하는 척도, 기준
+         * default 는 0.75f (ArrayList는 1)
+         * 사이즈가 가변적인 자료구조에 쓰이며 current capacity와 곱을 이뤄 사이즈를 증가시켜야 하는 시기를 결정하는데 사용한다.
+         */
+    }
+
+    public static void resolveCollisionsInAHash(int num) {
+        /**
+         * 만약 비어 있지 않은 공간에 값이 할당된다면
+         * - linear probing -> 빈 공간이 생길 때까지 다음 공간으로 옮긴다.
+         * - quadratic probing -> 빈 공간이 생길 때까지 1**2, 2**2, 3**2, 4**2 제곱씩 옮긴다
+         * - double hashing -> hashCode func을 2개 사용, 두 func의 값은 같지 않음.
+         *      두번째 hash 값은 0이 아니며 첫번째 hash 값 + 두번째 hash을 hashValue로 갖는다.
+         * -
+         *
+         */
+
+    }
 }
