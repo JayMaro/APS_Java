@@ -55,4 +55,15 @@ public class Hash {
          */
 
     }
+
+    public static void chaining() {
+        /**
+         * Array의 index를 head로 하는 각각의 linked list를 생성
+         * - 동일한 index의 값이 들어오면 addFirst(O(1))
+         * - 가장 잘 만들어진 데이터 스트럭쳐
+         * - Best case = O(1) 일 때
+         * - Wortst case = O(n)일 때 -> 계속 같은 index에 chaining이 될 때
+         *
+         */
+    }
 }
