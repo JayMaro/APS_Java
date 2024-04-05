@@ -1,40 +1,22 @@
 package leetcode.problem;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 
+// f(n) = f(n-1) + f(n-2)
 public class No_70 {
 
     public static void main(String[] args) {
-        System.out.println(climbStairs(35));
+        System.out.println(climbStairs(5));
     }
 
-
-    // Time Out
-    // TODO 4.4
     public static int climbStairs(int n) {
-        LinkedList<Object[]> queue = new LinkedList<>();
-        Set<String> resultList = new HashSet<>();
-        Set<String> reqList = new HashSet<>();
-        queue.add(new Object[]{0, ""});
-        while (queue.size() != 0) {
-            Object[] valueArray = queue.removeFirst();
-            if ((Integer) valueArray[0] > n) {
-                continue;
-            }
-            if (reqList.contains((String) valueArray[1])) {
-                continue;
-            }
-            reqList.add((String) valueArray[1]);
-            if ((Integer) valueArray[0] == n) {
-                resultList.add((String) valueArray[1]);
-            }
-            queue.addLast(new Object[]{(Integer) valueArray[0] + 2, (String) valueArray[1] + 2});
-            queue.addLast(new Object[]{(Integer) valueArray[0] + 1, (String) valueArray[1] + 1});
+        List<Integer> valueList = new ArrayList<>(Arrays.asList(0, 1, 2, 3));
+
+        for (int i=3; i<n; i++) {
+            valueList.add(valueList.get(i) + valueList.get(i-1));
         }
-        return resultList.size();
+        return valueList.get(n);
     }
 }
