@@ -66,4 +66,13 @@ public class Hash {
          *
          */
     }
+
+    public static void rehashing() {
+        /**
+         * lambda(load factor) = number of entries/ number of linked list
+         * 기존 리스트 -> 사이즈를 키움
+         * chaining -> 사이즈를 키웠을 때 인덱스 값이 달라짐
+         * 사이즈를 키운 뒤 초기화 후 -> rehashing
+         */
+    }
 }
