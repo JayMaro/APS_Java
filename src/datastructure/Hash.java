@@ -1,5 +1,8 @@
 package datastructure;
 
+import datastructure.Hash.HashImpl.HashElement;
+import java.util.LinkedList;
+
 /**
  * Associative array
  *
@@ -74,5 +77,30 @@ public class Hash {
          * chaining -> 사이즈를 키웠을 때 인덱스 값이 달라짐
          * 사이즈를 키운 뒤 초기화 후 -> rehashing
          */
+    }
+
+    public class HashImpl<K,V> implements HashInterface<K, V> {
+        class HashElement<K, V> implements Comparable <HashElement<K, V>> {
+            K key;
+            V value;
+
+            public HashElement(K key, V value) {
+                this.key = key;
+                this.value = value;
+            }
+
+            @Override
+            public int compareTo(HashImpl<K, V>.HashElement<K, V> o) {
+                return (((Comparable<K>) this.key).compareTo(o.key));
+            }
+        }
+        int numElements, tableSize;
+        double maxLoadFactor;
+        LinkedList<HashElement<K, V>> [] hArray;
+        // 이거 왜 []를 써야하지?
+    }
+
+    public interface HashInterface<K, V> {
+
     }
 }
