@@ -90,13 +90,13 @@ public class Hash {
             }
 
             @Override
-            public int compareTo(HashImpl<K, V>.HashElement<K, V> o) {
+            public int compareTo(HashElement<K, V> o) {
                 return (((Comparable<K>) this.key).compareTo(o.key));
             }
         }
         int numElements, tableSize;
         double maxLoadFactor;
-        LinkedList<HashElement<K, V>> [] hArray;
+        LinkedList<HashElement<K, V>> [] hArray; // LintList들의 Array라서 []를 붙여줌
         // 이거 왜 []를 써야하지?
     }
 
