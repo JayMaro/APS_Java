@@ -97,7 +97,17 @@ public class Hash {
         int numElements, tableSize;
         double maxLoadFactor;
         LinkedList<HashElement<K, V>> [] hArray; // LintList들의 Array라서 []를 붙여줌
-        // 이거 왜 []를 써야하지?
+        public HashImpl(int tableSize) {
+            this.tableSize = tableSize;
+            hArray = (LinkedList<HashElement<K,V>>[]) new LinkedList[tableSize];
+            // K[] keys = (K[]) new Object[10];
+            for (int i=0; i< tableSize; i++) {
+                hArray[i] = new LinkedList<HashElement<K,V>>();
+            }
+            // maxLoadFactor가 증가 -> 리사이징 시간이 오래 걸림
+            maxLoadFactor = 0.75;
+            numElements = 0;
+        }
     }
 
     public interface HashInterface<K, V> {
