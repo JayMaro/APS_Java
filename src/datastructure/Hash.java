@@ -108,6 +108,19 @@ public class Hash {
             maxLoadFactor = 0.75;
             numElements = 0;
         }
+
+        public boolean add(K key, V value) {
+            if (loadFactorMethod() > maxLoadFactor) {
+                resize(tableSize * 2);
+            }
+            HashElement<K, V> he = new HashElement<>(key, value);
+            int hashValue = key.hashCode();
+            hashValue = hashValue & 0x7ffffff;
+            hashValue = hashValue % tableSize; // index of array
+            hArray[hashValue].add(he);
+            numElements++;
+            return true;
+        }
     }
 
     public interface HashInterface<K, V> {
