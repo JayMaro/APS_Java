@@ -110,9 +110,9 @@ public class Hash {
         }
 
         public boolean add(K key, V value) {
-            if (loadFactorMethod() > maxLoadFactor) {
-                resize(tableSize * 2);
-            }
+//            if (loadFactorMethod() > maxLoadFactor) {
+//                resize(tableSize * 2);
+//            }
             HashElement<K, V> he = new HashElement<>(key, value);
             int hashValue = key.hashCode();
             hashValue = hashValue & 0x7ffffff;
@@ -120,6 +120,16 @@ public class Hash {
             hArray[hashValue].add(he);
             numElements++;
             return true;
+        }
+
+        public V getValue(K key) {
+            int hashValue = key.hashCode() & 0x7ffffff % tableSize; // index of array
+            for (HashElement<K, V> he : hArray[hashValue]) {
+                if (((Comparable<K>)key).compareTo(he.key) == 0) {
+                    return he.value;
+                }
+            }
+            return null;
         }
     }
 
