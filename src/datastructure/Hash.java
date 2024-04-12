@@ -1,6 +1,5 @@
 package datastructure;
 
-import datastructure.Hash.HashImpl.HashElement;
 import java.util.LinkedList;
 
 /**
@@ -130,6 +129,30 @@ public class Hash {
                 }
             }
             return null;
+        }
+
+        public void resize(int newSize) {
+            LinkedList<HashElement<K, V>> [] newArray = (LinkedList<HashElement<K, V>>[]) new LinkedList[newSize];
+            for (int i=0; i<newSize; i++) {
+                newArray[i] = new LinkedList<HashElement<K, V>>();
+            }
+            /*
+            for (K key: this) {
+                V val = getValue(key);
+                HashElement<K, V> he = new HashElement<K, V>(key ,val);
+                int hashValue = he.key.hashCode() & 0x7ffffff % newSize; // index of array
+                newArray[hashValue].add(he);
+            }
+             */
+
+            for (LinkedList<HashElement<K, V>> heList: this.hArray) {
+                for (HashElement<K, V> he : heList) {
+                    int hashValue = he.key.hashCode() & 0x7ffffff % newSize; // index of array
+                    newArray[hashValue].add(he);
+                }
+            }
+            this.hArray = newArray;
+            this.tableSize = newSize;
         }
     }
 
