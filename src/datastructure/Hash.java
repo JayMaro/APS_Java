@@ -1,5 +1,6 @@
 package datastructure;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
@@ -153,6 +154,36 @@ public class Hash {
             }
             this.hArray = newArray;
             this.tableSize = newSize;
+        }
+
+        public class HashIteratorHelper<T> implements Iterator<T> {
+            T[] keys;
+            int position;
+
+            public HashIteratorHelper() {
+                this.keys = (T[]) new Object[numElements];
+                int p = 0;
+                for (int i=0; i<tableSize; i++) {
+                    LinkedList<HashElement<K, V>> list = hArray[i];
+                    for (HashElement<K, V> h: list) {
+                        this.keys[p++] = (T) h.key;
+                    }
+                    position = 0;
+                }
+            }
+
+            @Override
+            public boolean hasNext() {
+                return position < keys.length;
+            }
+
+            @Override
+            public T next() {
+                if (!hasNext()) {
+                    return null;
+                }
+                return keys[position++];
+            }
         }
     }
 
