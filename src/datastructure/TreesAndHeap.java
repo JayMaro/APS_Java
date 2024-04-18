@@ -81,8 +81,8 @@ class Heap {
             int right = 2 * parent + 2;
             if (left == lastPosition &&
                 (((Comparable<E>) array[parent]).compareTo(array[left]) < 0)) {
-                    swap(parent, left);
-                    return;
+                swap(parent, left);
+                return;
             }
             if (right == lastPosition &&
                 (((Comparable<E>) array[parent]).compareTo(array[right]) < 0)) {
@@ -99,6 +99,7 @@ class Heap {
             } else if ((((Comparable<E>) array[parent]).compareTo(array[right]) < 0)) {
                 swap(parent, right);
                 trickleDown(right);
+            }
         }
     }
 }
