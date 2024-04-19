@@ -41,6 +41,9 @@ class Heap {
     - parent index: floor((child-1)/2)
     -> 이를 통해 Heap을 간단하게 Array로 구현할 수 있다.
 
+    HeapSort
+    - array를 통해 구현한 Heap에서 가장 큰(작은) 값이 항상 마지막 값과 스왑되고 정렬된다.
+    - 따라서 remove를 root까지 계속 실행한다면 큰(작은) 역순서대로 정렬된다.
      */
     class BinaryHeapImpl<E> {
 
