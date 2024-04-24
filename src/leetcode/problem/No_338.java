@@ -8,10 +8,9 @@ import java.util.stream.Collectors;
 public class No_338 {
 
     public static void main(String[] args) {
-        for (int num: countBits(16)) {
+        for (int num: countBits2(16)) {
             System.out.println(num);
         }
-
     }
 
     public static int[] countBits(int n) {
@@ -28,5 +27,20 @@ public class No_338 {
             numList.add(1);
         }
         return numList.subList(0, n+1).stream().mapToInt(i -> i).toArray();
+    }
+
+    public static int[] countBits2(int n) {
+        int[] intArr = new int[n+1];
+        for (int i=0; i<=n; i++) {
+            int count = 0;
+            char[] arr = Integer.toBinaryString(i).toCharArray();
+            for (char c : arr) {
+                if (c == '1') {
+                    count++;
+                }
+            }
+            intArr[i] = count;
+        }
+        return intArr;
     }
 }
