@@ -13,12 +13,26 @@ public class TreesAndHeap {
 
 class Tree {
     /*
-    Tree Traversal
-    - 트리 순회 몇가지 방법이 있다. 나중에 알아보자
     Complete Tree
     - Every non leaf has two children except for the last row & the last row filed left -> right
     Full Tree
     - Every non leaf has two children & all the leaves are on the same level
+
+    Tree Traversal
+    - Pre order traversal
+        - visit root
+        - visit left
+        - visit right
+    - In order traversal
+        - visit left
+        - visit root
+        - visit right
+    - Post order traversal
+        - visit left
+        - visit right
+        - visit root
+    - Breath First/ level order traversal
+        - left row value -> right row value
      */
 }
 
