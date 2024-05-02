@@ -1,4 +1,4 @@
-package hanter;
+package hanteo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;

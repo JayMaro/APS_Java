@@ -1,4 +1,4 @@
-package hanter;
+package hanteo;
 
 public enum CategoryEnum {
     MALE(1, 0,  0, "남자"),

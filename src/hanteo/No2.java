@@ -1,4 +1,4 @@
-package hanter;
+package hanteo;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
