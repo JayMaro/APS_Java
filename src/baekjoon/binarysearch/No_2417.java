@@ -9,7 +9,20 @@ public class No_2417 {
 
     public static void main(String[] args) throws IOException {
         long number = Long.parseLong(br.readLine());
-        double ans = Math.floor(Math.ceil(Math.sqrt(number)));
-        System.out.printf("%.0f", ans);
+        long left = 0;
+        long right = number;
+        long mid = number/2;
+        long result = 0;
+
+        while (right >= left) {
+            if (Math.pow(mid, 2) >= number) {
+                result = mid;
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+            mid = ((right + left) / 2);
+        }
+        System.out.println(result);
     }
 }
