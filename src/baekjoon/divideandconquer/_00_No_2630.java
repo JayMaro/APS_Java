@@ -1,4 +1,4 @@
-package ₩
+package baekjoon.divideandconquer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
