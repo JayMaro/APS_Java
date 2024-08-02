@@ -33,20 +33,44 @@ public class _No_13_9342 {
 
     private static boolean checkIsInfected(String input) {
         char[] inputCharArr = input.toCharArray();
-        if (!checkIsContain(inputCharArr[0]) || !checkIsContain(inputCharArr[input.length() - 1])) {
-            return false;
-        }
         List<Character> characters = new ArrayList<>();
         char before = ' ';
-        for (int j = 1; j < input.length() - 1; j++) {
+        for (int j = 0; j < input.length(); j++) {
             if (inputCharArr[j] != before) {
                 characters.add(inputCharArr[j]);
                 before = inputCharArr[j];
             }
         }
-        return characters.size() == 3
+        if (characters.size() == 3
             && characters.get(0).equals('A')
             && characters.get(1).equals('F')
-            && characters.get(2).equals('C');
+            && characters.get(2).equals('C')) {
+            return true;
+        }
+        if (characters.size() == 5
+            && characters.get(1).equals('A')
+            && characters.get(2).equals('F')
+            && characters.get(3).equals('C')
+            && checkIsContain(characters.get(0))
+            && checkIsContain(characters.get(4))) {
+            return true;
+        }
+        if (characters.size() == 4) {
+            if (!characters.get(0).equals('A')
+                && checkIsContain(characters.get(0))
+                && characters.get(1).equals('A')
+                && characters.get(2).equals('F')
+                && characters.get(3).equals('C')) {
+                return true;
+            }
+            if (characters.get(0).equals('A')
+                && characters.get(1).equals('F')
+                && characters.get(2).equals('C')
+                && checkIsContain(characters.get(3))) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
