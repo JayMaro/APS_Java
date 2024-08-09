@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class _No_13_9342 {
+public class _No_12_9342 {
 
     public static char[] cArr = new char[]{'A', 'B', 'C', 'D', 'E', 'F'};
 
