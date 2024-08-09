@@ -9,27 +9,26 @@ public class _13_No_17413 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder res = new StringBuilder();
-        String[] inputs = br.readLine().split(" ");
-        for (String input : inputs) {
-            StringBuilder sb = new StringBuilder();
-            for (char c : input.toCharArray()) {
-                if (c == '<') {
-                    res.append(sb.reverse());
-                    sb = new StringBuilder();
-                }
+        StringBuilder sb = new StringBuilder();
+        String input = br.readLine();
+        boolean isTag = false;
+        for (char c : input.toCharArray()) {
+            if (c == '<') {
+                isTag = true;
+                res.append(sb.reverse());
+                sb = new StringBuilder().append(c);
+            } else if (c == '>') {
+                isTag = false;
+                res.append(sb.append(c));
+                sb = new StringBuilder();
+            } else if (!isTag && c == ' ') {
+                res.append(sb.reverse()).append(c);
+                sb = new StringBuilder();
+            } else {
                 sb.append(c);
-                if (c == '>') {
-                    res.append(sb);
-                    sb = new StringBuilder();
-                }
             }
-            res.append(sb.reverse());
-            res.append(" ");
         }
+        res.append(sb.reverse());
         System.out.println(res);
-    }
-
-    private static String flip(String s) {
-        return new StringBuilder(s).reverse().toString();
     }
 }
