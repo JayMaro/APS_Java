@@ -3,6 +3,7 @@ package baekjoon.datastructure;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Comparator;
 import java.util.TreeMap;
 
 public class _2_05_No_7662 {
@@ -13,7 +14,7 @@ public class _2_05_No_7662 {
         int n = Integer.parseInt(br.readLine());
         for (int i = 0; i < n; i++) {
             int k = Integer.parseInt(br.readLine());
-            TreeMap<Integer, Integer> map = new TreeMap<>((a,b) -> b - a);
+            TreeMap<Integer, Integer> map = new TreeMap<>(Comparator.reverseOrder());
             for (int j = 0; j < k; j++) {
                 String[] s = br.readLine().split(" ");
                 if ("I".equals(s[0])) {
