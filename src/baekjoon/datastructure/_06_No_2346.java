@@ -3,16 +3,17 @@ package baekjoon.datastructure;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class _06_No_2346 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        LinkedList<Integer> list = new LinkedList<>();
+        // LinkedList 보다 ArrayDeque가 메모리 차지가 더 적다.
+        ArrayDeque<Integer> list = new ArrayDeque<>();
         ArrayList<Integer> resultList = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
         int moveCount = 0;
