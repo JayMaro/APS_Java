@@ -68,8 +68,8 @@ public class No_17276 {
         for (int i = 0; i < length; i++) {
             now[i][i] = before[i][half];
             now[i][half] = before[i][length - i- 1];
-            now[i][length - i- 1] = before[i][half];
-            now[half][length - i - 1] = before[i][i];
+            now[i][length - i- 1] = before[half][length - i- 1];
+            now[half][i] = before[i][i];
         }
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < length; j++) {
